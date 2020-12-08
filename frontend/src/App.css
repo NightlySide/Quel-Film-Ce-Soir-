@@ -1,0 +1,70 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.main {
+	overflow-y: auto;
+}
+
+#root,
+.App {
+	display: flex;
+	flex-flow: column;
+	background-color: #27353f;
+	width: 100%;
+	height: 100%;
+}
+
+.navbar {
+	flex: 0 1 auto;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.footer {
+	flex: 0 1 40px;
+}
+
+.navbar-heading:hover {
+	cursor: pointer;
+}
+
+.item-card {
+	height: 27vw;
+	filter: brightness(0.5);
+	transition: all 0.25s;
+	background-size: cover !important;
+	overflow: hidden;
+}
+
+.item-card:hover {
+	filter: brightness(1);
+	transform: scale(1.025);
+}
+
+.item-card .card-title {
+	font-weight: bold;
+}
+
+/*-------- Presentation ---------*/
+
+.present-container {
+	height: 100%;
+	background-size: cover !important;
+}
+
+.entry-item:hover {
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.present-sources {
+	overflow-y: auto;
+	height: 100%;
+}

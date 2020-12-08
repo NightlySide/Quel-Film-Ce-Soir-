@@ -1,0 +1,54 @@
+type Entry {
+	file_name: String
+	torrent_name: String
+	source_name: String
+	quality: String
+	resolution: String
+	download_link: String
+	language: String
+	seed: Int
+	leech: Int
+	size: String
+}
+
+type Film {
+	id: Int
+	adult: Boolean
+	genre_id: [Int]
+	original_language: String
+	original_title: String
+	overview: String
+	popularity: Float
+	poster_path: String
+	backdrop_path: String
+	release_date: String
+	title: String
+	video: Boolean
+	vote_average: Float
+	vote_count: Int
+	entries: [Entry]
+}
+
+type MovieDB {
+	adult: Boolean
+	backdrop_path: String
+	genre_id: [Int]
+	id: Int
+	original_language: String
+	original_title: String
+	overview: String
+	popularity: Float
+	poster_path: String
+	release_date: String
+	title: String
+	video: Boolean
+	vote_average: Float
+	vote_count: Int
+}
+
+type Query {
+	helloWorld: String!
+	films: [Film]
+	film(id: Int): Film
+	searchMovie(query: String!): [Film]
+}

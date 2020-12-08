@@ -1,0 +1,90 @@
+{
+	"name": "quel-film-ce-soir",
+	"version": "0.1.0",
+	"author": {
+		"name": "Nightlyside",
+		"email": "nightlyside@gmail.com",
+		"url": "https://nightlyside.github.io/"
+	},
+	"private": true,
+	"homepage": "./",
+	"main": "build/electron/start.js",
+	"dependencies": {
+		"@apollo/client": "^3.3.3",
+		"@blueprintjs/core": "^3.36.0",
+		"@types/node": "^12.0.0",
+		"@types/react": "^16.9.53",
+		"@types/react-dom": "^16.9.8",
+		"electron-builder-squirrel-windows": "^22.9.1",
+		"graphql": "^15.4.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-infinite-scroller": "^1.2.4",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^4.0.1",
+		"typescript": "^4.0.3",
+		"electron-is-dev": "^1.2.0"
+	},
+	"scripts": {
+		"start": "BROWSER=none react-scripts start",
+		"build": "react-scripts build",
+		"electron:dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+		"electron:build": "yarn build && tsc -p electron && electron-builder",
+		"postinstall": "electron-builder install-app-deps"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@types/electron-devtools-installer": "^2.2.0",
+		"@types/react-infinite-scroller": "^1.2.1",
+		"@types/react-router-dom": "^5.1.6",
+		"concurrently": "^5.3.0",
+		"electron": "^11.0.3",
+		"electron-builder": "^22.9.1",
+		"electron-devtools-installer": "^3.1.1",
+		"electron-reload": "^1.5.0",
+		"wait-on": "^5.2.0"
+	},
+	"build": {
+		"appId": "io.github.nightlyside.quelfilmcesoir",
+		"asar": false,
+		"extends": null,
+		"win": {
+			"target": [
+				"zip"
+			]
+		},
+		"squirrelWindows": {
+			"iconUrl": "./build/favicon.ico"
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb"
+			]
+		},
+		"files": [
+			"build/**/*",
+			"public/**/*"
+		],
+		"directories": {
+			"buildResources": "assets"
+		}
+	}
+}
